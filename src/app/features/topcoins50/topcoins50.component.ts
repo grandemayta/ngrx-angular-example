@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Coin } from 'models/coin.model';
+import { Store } from '@ngrx/store';
+import * as fromStore from './store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-topcoins50',
@@ -6,10 +10,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./topcoins50.component.scss']
 })
 export class TopCoins50Component implements OnInit {
+  coins$: Observable<Coin[]>;
 
-  constructor() { }
+  constructor(private store: Store<fromStore.TopCoins50State>) { }
 
   ngOnInit() {
+    this.coins$ = this.store.select(fromStore.getAllTopCoins50);
+    this.store.dispatch(new fromStore.LoadTopCoins50);
   }
 
 }
