@@ -3,9 +3,7 @@
 [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 [![made-with-javascript-doc](https://img.shields.io/badge/Made%20with-Javascript-1f425f.svg)](https://www.sphinx-doc.org/)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.2.
-<br>
-**This project is work in progress**
+This project is work in progress
 
 ## Development server
 
@@ -29,6 +27,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ## Further help
 
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.2.
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 ## Todo
