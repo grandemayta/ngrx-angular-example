@@ -1,3 +1,6 @@
-<p>
-  top50 works!
-</p>
+<ul>
+  <li *ngFor="let coin of (coins$ | async)">
+    <h3>Name: {{ coin.symbol }}</h3>
+    <p>Price: {{ coin.price }}</p>
+  </li>
+</ul>

@@ -26,12 +26,13 @@ export function reducer(
             };
         }
         case fromTopCoins50.LOAD_TOPCOINS50_SUCCESS: {
-            const data = action.payload;
-            console.log(data);
+            let data = action.payload;
+            data = Object.keys(data).map(item => data[item]);
             return {
                 ...state,
                 loading: false,
-                loaded: true
+                loaded: true,
+                data
             };
         }
         case fromTopCoins50.LOAD_TOPCOINS50_FAIL: {
