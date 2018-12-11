@@ -4,6 +4,7 @@
 [![made-with-javascript-doc](https://img.shields.io/badge/Made%20with-Javascript-1f425f.svg)](https://www.sphinx-doc.org/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.2.
+<br>
 **This project is work in progress**
 
 ## Development server
