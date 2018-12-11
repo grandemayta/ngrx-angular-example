@@ -9,6 +9,6 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to ngrx-boilerplate!');
+    expect(page.getTitleText()).toEqual('Welcome to ngrx-angular-example!');
   });
 });
