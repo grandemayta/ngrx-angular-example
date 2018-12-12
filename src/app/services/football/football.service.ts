@@ -31,7 +31,7 @@ export class FootballService {
   @Effect()
   getTeam(id: number): Observable<Team> {
     return this.http
-      .get<Team>(`${this.apiUrl}/${this.apiVersion}/team/${id}`, { headers: this.apiHeaders })
+      .get<Team>(`${this.apiUrl}/${this.apiVersion}/teams/${id}`, { headers: this.apiHeaders })
       .pipe(
         catchError((error: any) => Observable.throw(error.json))
       );
