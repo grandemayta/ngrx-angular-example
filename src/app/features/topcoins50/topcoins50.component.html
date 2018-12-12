@@ -2,5 +2,6 @@
   <li *ngFor="let coin of (coins$ | async)">
     <h3>Name: {{ coin.symbol }}</h3>
     <p>Price: {{ coin.price }}</p>
+    <img height="200px" [src]="'https://chasing-coins.com/api/v1/std/logo/'+ coin.symbol">
   </li>
 </ul>

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { CoinsService } from './coins/coins.service';
+import { FootballService } from './football/football.service';
 
 @NgModule({
   declarations: [],
@@ -9,6 +9,6 @@ import { CoinsService } from './coins/coins.service';
     CommonModule,
     HttpClientModule
   ],
-  providers: [HttpClientModule, CoinsService]
+  providers: [HttpClientModule, FootballService]
 })
 export class ServicesModule { }

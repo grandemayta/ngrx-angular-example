@@ -1,17 +1,18 @@
-<ul>
-  <li>
-    <a routerLink="/topcoins50">
-     Top 50
-    </a>
-  </li>
-  <li>
-    <a href="">
-     Search
-    </a>
-  </li>
-  <li>
-    <a href="">
-     Bookmarks
-    </a>
-  </li>
-</ul>
+<div class="row home-container">
+  <a [routerLink]="['teams']" class="col s3 center-align">
+    <i class="medium material-icons">supervisor_account</i>
+    <h4>Teams</h4>
+  </a>
+  <a [routerLink]="['standings']" class="col s3 center-align">
+    <i class="medium material-icons">filter_1</i>
+    <h4>Standings</h4>
+  </a>
+  <a class="col s3 center-align">
+    <i class="medium material-icons">live_tv</i>
+    <h4>Matches</h4>
+  </a>
+  <a class="col s3 center-align">
+    <i class="medium material-icons">favorite_border</i>
+    <h4>Favorite</h4>
+  </a>
+</div>
