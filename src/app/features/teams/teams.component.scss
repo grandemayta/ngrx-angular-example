@@ -1,0 +1,8 @@
+.team-logo {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    &.circle {
+        background-color: #f0f0f0 !important;
+    }
+}
