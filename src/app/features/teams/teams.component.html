@@ -4,7 +4,7 @@
     <i class="material-icons circle team-logo" [ngStyle]="{'background-image': 'url(' + team.crestUrl + ')'}"></i>
     <span class="title">{{ team.name }}</span>
     <p>Founded: {{ team.founded }}</p>
-    <a href="#" class="secondary-content">
+    <a [routerLink]="['/teams', team.id]" class="secondary-content">
       <i class="material-icons">keyboard_arrow_right</i>
     </a>
   </li>

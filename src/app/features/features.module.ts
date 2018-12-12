@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeModule } from './home/home.module';
 import { TeamsModule } from './teams/teams.module';
 import { StandingsModule } from './standings/standings.module';
+import { TeamModule } from './team/team.module';
 
 @NgModule({
   declarations: [],
@@ -10,7 +11,8 @@ import { StandingsModule } from './standings/standings.module';
     CommonModule,
     HomeModule,
     TeamsModule,
-    StandingsModule
+    StandingsModule,
+    TeamModule
   ]
 })
 export class FeaturesModule { }
