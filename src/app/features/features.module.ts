@@ -4,6 +4,8 @@ import { HomeModule } from './home/home.module';
 import { TeamsModule } from './teams/teams.module';
 import { StandingsModule } from './standings/standings.module';
 import { TeamModule } from './team/team.module';
+import { MatchesModule } from './matches/matches.module';
+import { FavoritesModule } from './favorites/favorites.module';
 
 @NgModule({
   declarations: [],
@@ -12,7 +14,9 @@ import { TeamModule } from './team/team.module';
     HomeModule,
     TeamsModule,
     StandingsModule,
-    TeamModule
+    TeamModule,
+    MatchesModule,
+    FavoritesModule
   ]
 })
 export class FeaturesModule { }

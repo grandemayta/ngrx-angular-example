@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Team } from 'models/team.model';
 import { Standings } from 'models/standings.model';
+import { Match } from 'models/match.model';
 
 @Injectable()
 export class FootballService {
@@ -42,6 +43,15 @@ export class FootballService {
   getStandings(): Observable<Standings[]> {
     return this.http
       .get<Standings[]>(`${this.apiUrl}/${this.apiVersion}/competitions/SA/standings`, { headers: this.apiHeaders })
+      .pipe(
+        catchError((error: any) => Observable.throw(error.json))
+      );
+  }
+
+  @Effect()
+  getMatches(): Observable<Match[]> {
+    return this.http
+      .get<Match[]>(`${this.apiUrl}/${this.apiVersion}/competitions/SA/matches`, { headers: this.apiHeaders })
       .pipe(
         catchError((error: any) => Observable.throw(error.json))
       );
