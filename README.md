@@ -5,10 +5,10 @@
 
 This project is work in progress.
 
-https://user-images.githubusercontent.com/6887120/49947467-9f6b8f80-fef1-11e8-920f-13d3fd4374dc.png
-https://user-images.githubusercontent.com/6887120/49947465-9f6b8f80-fef1-11e8-9693-a1bbde3f7ebc.png
-https://user-images.githubusercontent.com/6887120/49947464-9f6b8f80-fef1-11e8-8683-341edbd7f781.png
-https://user-images.githubusercontent.com/6887120/49947463-9f6b8f80-fef1-11e8-900f-1a19f4a2089f.png
+<img src="https://user-images.githubusercontent.com/6887120/49947467-9f6b8f80-fef1-11e8-920f-13d3fd4374dc.png">
+<img src="https://user-images.githubusercontent.com/6887120/49947465-9f6b8f80-fef1-11e8-9693-a1bbde3f7ebc.png">
+<img src="https://user-images.githubusercontent.com/6887120/49947464-9f6b8f80-fef1-11e8-8683-341edbd7f781.png">
+<img src="https://user-images.githubusercontent.com/6887120/49947463-9f6b8f80-fef1-11e8-900f-1a19f4a2089f.png">
 
 ## Development server
 
