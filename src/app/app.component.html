@@ -11,7 +11,9 @@
   <div class="nav-wrapper">
     <div class="row">
       <div class="col s12">
-        <a href="#!" class="breadcrumb">Teams</a>
+        <a *ngFor="let url of urls" class="breadcrumb">
+          {{url}}
+        </a>
       </div>
     </div>
   </div>

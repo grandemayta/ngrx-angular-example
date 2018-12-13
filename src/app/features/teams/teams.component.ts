@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Team } from 'models/team.model';
 import { Store } from '@ngrx/store';
+import { Team } from 'models/team.model';
 import * as fromStore from './store';
 import { Observable } from 'rxjs';
 

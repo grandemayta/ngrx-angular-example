@@ -4,6 +4,7 @@ import { Effect } from '@ngrx/effects';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Team } from 'models/team.model';
+import { Standings } from 'models/standings.model';
 
 @Injectable()
 export class FootballService {
@@ -32,6 +33,15 @@ export class FootballService {
   getTeam(id: number): Observable<Team> {
     return this.http
       .get<Team>(`${this.apiUrl}/${this.apiVersion}/teams/${id}`, { headers: this.apiHeaders })
+      .pipe(
+        catchError((error: any) => Observable.throw(error.json))
+      );
+  }
+
+  @Effect()
+  getStandings(): Observable<Standings[]> {
+    return this.http
+      .get<Standings[]>(`${this.apiUrl}/${this.apiVersion}/competitions/SA/standings`, { headers: this.apiHeaders })
       .pipe(
         catchError((error: any) => Observable.throw(error.json))
       );

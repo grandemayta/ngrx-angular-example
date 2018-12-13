@@ -1,3 +1,36 @@
-<p>
-  standings works!
-</p>
+<div *ngIf="standings$ | async as standings">
+  <table *ngIf="standings.length > 0" class="striped">
+    <thead>
+      <tr>
+        <th>Position</th>
+        <th>Team</th>
+        <th>Played</th>
+        <th>Won</th>
+        <th>Draw</th>
+        <th>Lost</th>
+        <th>Points</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let table of standings[0].table">
+        <td>
+          <h6>{{table.position}}</h6>
+        </td>
+        <td>
+          <h6>
+            <a [routerLink]="['/teams', table.team.id]">
+              {{table.team.name}}
+            </a>
+          </h6>
+        </td>
+        <td>{{table.playedGames}}</td>
+        <td>{{table.won}}</td>
+        <td>{{table.draw}}</td>
+        <td>{{table.lost}}</td>
+        <td>
+          <h6>{{table.points}}</h6>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

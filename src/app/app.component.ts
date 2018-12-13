@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, NavigationStart, RouterEvent, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ngrx-angular-example';
+  urls: string[];
+
+  constructor(private router: Router, private route: ActivatedRoute) {
+    this.router.events.subscribe((event: RouterEvent) => this.navigationInterceptor(event));
+  }
+
+  navigationInterceptor(event: RouterEvent): void {
+    if (event instanceof NavigationStart) {
+      window.scroll(0, 0);
+      if (event.url) {
+        const urlArray = event.url.split('/');
+        if (urlArray.length > 1) {
+          this.urls = urlArray.slice(1, urlArray.length);;
+        } else {
+          this.urls = [urlArray[0]];
+        }
+      }
+    }
+  }
 }
