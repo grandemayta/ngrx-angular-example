@@ -31,7 +31,7 @@ export function reducer(
                 ...state,
                 loading: false,
                 loaded: true,
-                data
+                data: data
             };
         }
         case fromTeam.LOAD_TEAM_FAIL: {

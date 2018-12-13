@@ -1,4 +1,3 @@
-
 <ul class="teams-container collection">
   <li *ngFor="let team of (teams$ | async)" class="collection-item avatar">
     <i class="material-icons circle team-logo" [ngStyle]="{'background-image': 'url(' + team.crestUrl + ')'}"></i>

@@ -1,3 +1,49 @@
-<p>
-  team works!
-</p>
+<div *ngIf="team$ | async as team" class="teams-container">
+  <h1 >
+      {{team.name}}
+  </h1>
+  <div class="col s12 m8 offset-m2 l6 offset-l3">
+    <div class="card-panel grey lighten-5 z-depth-1">
+      <div class="row valign-wrapper">
+        <div class="col s2">
+          <img [src]="[team.crestUrl]" class="responsive-img"> 
+        </div>
+        <div class="col s10">
+          <div *ngIf="team.founded" class="black-text">
+            Founded: {{team.founded}}
+          </div>
+          <div *ngIf="team.address"  class="black-text">
+            Address: {{team.address}}
+          </div>
+          <div *ngIf="team.venue"  class="black-text">
+            Stadium: {{team.venue}}
+          </div>
+          <div *ngIf="team.email"  class="black-text">
+            Email: <a [href]="['mailto:' + team.email]">{{team.email}}</a>
+          </div>
+          <div *ngIf="team.website"  class="black-text">
+            Website: <a [href]="[team.website]" target="_blank">{{team.website}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ul class="collection">
+    <li *ngFor="let squad of team.squad" class="collection-item">
+      <h5 class="title">
+        <span *ngIf="squad.shirtNumber" class="shirtnumber">{{squad.shirtNumber}}</span>
+        {{squad.name}}
+      </h5>
+      <p>
+        <span *ngIf="squad.role !== 'COACH'">
+            {{squad.position}}
+        </span>
+        <span *ngIf="squad.role === 'COACH'">
+            Coach
+        </span>
+        <br>
+        {{squad.nationality}}
+      </p>
+    </li>
+  </ul>
+</div>

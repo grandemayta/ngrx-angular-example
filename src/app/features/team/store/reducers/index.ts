@@ -9,7 +9,7 @@ export const reducers: ActionReducerMap<TeamState> = {
     team: fromTeam.reducer
 };
 
-export const getTeamState = createFeatureSelector<TeamState>('teams');
+export const getTeamState = createFeatureSelector<TeamState>('team');
 
 export const getTeamChildrenState = createSelector(getTeamState, (state: TeamState) => state.team);
 
