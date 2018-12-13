@@ -1,7 +1,0 @@
-<input (keyup)="onKeyUp($event)" placeholder="Find a developer..." type="text">
-<button (click)="onSearch()">Search</button>
-<ul>
-  <li *ngFor="let user of (users$ | async)">
-    <h3>{{user.login}}</h3>
-  </li>
-</ul>

@@ -5,7 +5,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { AppComponent } from './app.component';
 import { ServicesModule } from 'services/services.module';
-import { SearchModule } from 'features/search/search.module';
+import { FeaturesModule } from 'features/features.module';
 
 const ROUTES: Routes = [];
 
@@ -16,7 +16,7 @@ const ROUTES: Routes = [];
   imports: [
     BrowserModule,
     ServicesModule,
-    SearchModule,
+    FeaturesModule,
     RouterModule.forRoot(ROUTES),
     StoreModule.forRoot({}),
     EffectsModule.forRoot([])

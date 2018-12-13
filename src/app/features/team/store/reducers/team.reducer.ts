@@ -1,40 +1,40 @@
-import * as fromUsers from '../actions/users.actions';
-import { User } from 'models/users.model';
+import * as fromTeam from '../actions/team.action';
+import { Team } from 'models/team.model';
 
-export interface UserState {
-    data: User[];
+export interface TeamState {
+    data: Team;
     loaded: boolean;
     loading: boolean;
 }
 
-export const initialState: UserState = {
-    data: [],
+export const initialState: TeamState = {
+    data: null,
     loaded: false,
     loading: false
 };
 
 export function reducer(
     state = initialState,
-    action: fromUsers.UsersAction
-    ): UserState {
+    action: fromTeam.TeamAction
+    ): TeamState {
 
     switch (action.type) {
-        case fromUsers.LOAD_USERS: {
+        case fromTeam.LOAD_TEAM: {
             return {
                 ...state,
                 loading: true
             };
         }
-        case fromUsers.LOAD_USERS_SUCCESS: {
+        case fromTeam.LOAD_TEAM_SUCCESS: {
             const data = action.payload;
             return {
                 ...state,
                 loading: false,
                 loaded: true,
-                data
+                data: data
             };
         }
-        case fromUsers.LOAD_USERS_FAIL: {
+        case fromTeam.LOAD_TEAM_FAIL: {
             return {
                 ...state,
                 loading: false,
@@ -46,6 +46,6 @@ export function reducer(
     return state;
 }
 
-export const getUsers = (state: UserState) => state.data;
-export const getUsersLoading = (state: UserState) => state.loading;
-export const getUsersLoaded = (state: UserState) => state.loaded;
+export const getTeam = (state: TeamState) => state.data;
+export const getTeamLoading = (state: TeamState) => state.loading;
+export const getTeamLoaded = (state: TeamState) => state.loaded;
