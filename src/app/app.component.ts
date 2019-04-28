@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, NavigationStart, RouterEvent, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +19,7 @@ export class AppComponent {
       if (event.url) {
         const urlArray = event.url.split('/');
         if (urlArray.length > 1) {
-          this.urls = urlArray.slice(1, urlArray.length);;
+          this.urls = urlArray.slice(1, urlArray.length);
         } else {
           this.urls = [urlArray[0]];
         }

@@ -14,7 +14,7 @@ export class FootballService {
   apiHeaders: any;
 
   constructor(private http: HttpClient) {
-    this.apiUrl = 'http://api.football-data.org';
+    this.apiUrl = 'https://api.football-data.org';
     this.apiVersion = 'v2';
     this.apiHeaders = new HttpHeaders({
       'X-Auth-Token': 'ffd61d87e73740c29dd389ea7619d5e1'
