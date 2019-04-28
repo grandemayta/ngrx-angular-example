@@ -1,0 +1,20 @@
+language: node_js
+node_js: 
+  - '8'
+cache: 
+  - yarn
+branches:
+  only:
+  - master
+before-script: 
+  - yarn
+script: 
+  - yarn prod
+deploy:
+  provider: firebase
+  skip_cleanup: true
+  token:
+    secure: $FIREBASE_TOKEN
+  project: ngrx-angular-fe-gm
+
+  
