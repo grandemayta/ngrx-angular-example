@@ -8,7 +8,7 @@ import { effects, reducers } from './store';
 
 const ROUTES: Routes = [
   {
-    path: 'teams',
+    path: '',
     component: TeamsComponent
   }
 ];
