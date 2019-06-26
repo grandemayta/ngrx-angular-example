@@ -17,6 +17,7 @@
       "features/*": ["src/app/features/*"]
     },
     "rootDirs": [
+      "./",
       "src/app/models",
       "src/app/services",
       "src/app/features"
