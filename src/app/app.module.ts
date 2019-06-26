@@ -5,6 +5,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { AppComponent } from './app.component';
 import { ServicesModule } from 'services/services.module';
+import { HomeModule } from './features/home/home.module';
 
 const ROUTES: Routes = [
   {
