@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Team } from 'models/team.model';
-import * as fromStore from './store';
+import { LoadTeams, TeamsState } from './state';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -12,11 +12,10 @@ import { Observable } from 'rxjs';
 export class TeamsComponent implements OnInit {
   teams$: Observable<Team[]>;
 
-  constructor(private store: Store<fromStore.TeamsState>) { }
+  constructor(private store: Store<TeamsState>) { }
 
   ngOnInit() {
-    this.teams$ = this.store.select(fromStore.getAllTeams);
-    this.store.dispatch(new fromStore.LoadTeams);
+    this.store.dispatch(new LoadTeams);
+    this.teams$ = this.store.select(({ teams }) => teams.data);
   }
-
 }

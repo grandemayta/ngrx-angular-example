@@ -1,4 +1,4 @@
-import * as fromTeams from '../actions/teams.action';
+import * as fromTeams from './teams.action';
 import { Team } from 'models/team.model';
 
 export interface TeamState {
@@ -13,6 +13,10 @@ export const initialState: TeamState = {
     loading: false
 };
 
+export interface TeamsState {
+    teams: TeamState;
+}
+
 export function reducer(
     state = initialState,
     action: fromTeams.TeamsAction
@@ -26,12 +30,12 @@ export function reducer(
             };
         }
         case fromTeams.LOAD_TEAMS_SUCCESS: {
-            const data = action.payload;
+            const { payload } = action;
             return {
                 ...state,
                 loading: false,
                 loaded: true,
-                data: data['teams']
+                data: payload['teams']
             };
         }
         case fromTeams.LOAD_TEAMS_FAIL: {
@@ -45,7 +49,3 @@ export function reducer(
 
     return state;
 }
-
-export const getTeams = (state: TeamState) => state.data;
-export const getTeamsLoading = (state: TeamState) => state.loading;
-export const getTeamsLoaded = (state: TeamState) => state.loaded;

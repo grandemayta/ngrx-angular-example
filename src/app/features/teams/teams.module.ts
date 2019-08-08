@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { TeamsComponent } from './teams.component';
-import { effects, reducers } from './store';
+import { TeamsEffects, reducer } from './state/index';
 
 const ROUTES: Routes = [
   {
@@ -18,8 +18,8 @@ const ROUTES: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(ROUTES),
-    StoreModule.forFeature('teams', reducers),
-    EffectsModule.forFeature(effects)
+    StoreModule.forFeature('teams', reducer),
+    EffectsModule.forFeature([TeamsEffects])
   ]
 })
 export class TeamsModule { }

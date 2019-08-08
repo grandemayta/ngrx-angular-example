@@ -40,14 +40,12 @@ const ROUTES: Routes = [
     AppComponent,
   ],
   imports: [
-    StoreDevtoolsModule.instrument({
-      logOnly: environment.production
-    }),
     BrowserModule,
     ServicesModule,
     RouterModule.forRoot(ROUTES),
     StoreModule.forRoot({}),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([]),
+    StoreDevtoolsModule.instrument()
   ],
   providers: [],
   bootstrap: [AppComponent]
