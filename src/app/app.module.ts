@@ -1,3 +1,4 @@
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -5,32 +6,32 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { AppComponent } from './app.component';
 import { ServicesModule } from 'services/services.module';
-import { HomeModule } from './features/home/home.module';
+import { environment } from '../environments/environment';
 
 const ROUTES: Routes = [
   {
     path: '',
-    loadChildren: './features/home/home.module#HomeModule'
+    loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule)
   },
   {
     path: 'teams',
-    loadChildren: './features/teams/teams.module#TeamsModule'
+    loadChildren: () => import('./features/teams/teams.module').then(m => m.TeamsModule)
   },
   {
     path: 'teams/:id',
-    loadChildren: './features/team/team.module#TeamModule'
+    loadChildren: () => import('./features/team/team.module').then(m => m.TeamModule)
   },
   {
     path: 'standings',
-    loadChildren: './features/standings/standings.module#StandingsModule'
+    loadChildren: () => import('./features/standings/standings.module').then(m => m.StandingsModule)
   },
   {
     path: 'matches',
-    loadChildren: './features/matches/matches.module#MatchesModule'
+    loadChildren: () => import('./features/matches/matches.module').then(m => m.MatchesModule)
   },
   {
     path: 'favorites',
-    loadChildren: './features/favorites/favorites.module#FavoritesModule'
+    loadChildren: () => import('./features/favorites/favorites.module').then(m => m.FavoritesModule)
   }
 ];
 
@@ -39,6 +40,9 @@ const ROUTES: Routes = [
     AppComponent,
   ],
   imports: [
+    StoreDevtoolsModule.instrument({
+      logOnly: environment.production
+    }),
     BrowserModule,
     ServicesModule,
     RouterModule.forRoot(ROUTES),

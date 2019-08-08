@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Effect, Actions } from '@ngrx/effects';
+import { Effect, Actions, ofType } from '@ngrx/effects';
 import { switchMap, map, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import * as standingsActions from '../actions/standings.action';
@@ -13,8 +13,9 @@ export class StandingsEffects {
     ) {}
 
     @Effect()
-    loadStandings$ = this.actions$.ofType(standingsActions.LOAD_STANDINGS)
+    loadStandings$ = this.actions$
         .pipe(
+            ofType(standingsActions.LOAD_STANDINGS),
             switchMap(() => {
                 return this.footballService.getStandings().pipe(
                     map(data => new standingsActions.LoadStandingsSuccess(data)),
