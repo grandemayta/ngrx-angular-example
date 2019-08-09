@@ -18,10 +18,6 @@ export const initialState: MatchState = {
     loading: false
 };
 
-export interface MatchesState {
-    matches: MatchState;
-}
-
 export function reducer(
     state = initialState,
     action: MatchesAction
@@ -52,4 +48,8 @@ export function reducer(
         }
     }
     return state;
+}
+
+export interface MatchesState {
+    matches: MatchState;
 }

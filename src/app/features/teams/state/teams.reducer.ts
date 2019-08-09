@@ -13,10 +13,6 @@ export const initialState: TeamState = {
     loading: false
 };
 
-export interface TeamsState {
-    teams: TeamState;
-}
-
 export function reducer(
     state = initialState,
     action: fromTeams.TeamsAction
@@ -48,4 +44,8 @@ export function reducer(
     }
 
     return state;
+}
+
+export interface TeamsState {
+    teams: TeamState;
 }
