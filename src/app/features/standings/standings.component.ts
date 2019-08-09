@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Standings } from 'models/standings.model';
-import * as fromStore from './store';
+import { StandingsState, LoadStandings } from './state';
 
 @Component({
   selector: 'app-standings',
@@ -12,12 +12,11 @@ import * as fromStore from './store';
 export class StandingsComponent implements OnInit {
   standings$: Observable<Standings[]>;
 
-  constructor(private store: Store<fromStore.StandingsState>) {
-    this.store.dispatch(new fromStore.LoadStandings);
+  constructor(private store: Store<StandingsState>) {
+    this.store.dispatch(new LoadStandings);
   }
 
   ngOnInit() {
-    this.standings$ = this.store.select(fromStore.getAllStandings);
+    this.standings$ = this.store.select(({ standings }) => standings.data);
   }
-
 }

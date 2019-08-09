@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Match } from 'models/match.model';
 import { Store } from '@ngrx/store';
-import * as fromStore from './store';
+import { MatchesState, LoadMatches } from './state';
 
 @Component({
   selector: 'app-matches',
@@ -12,12 +12,11 @@ import * as fromStore from './store';
 export class MatchesComponent implements OnInit {
   matches$: Observable<Match[]>;
 
-  constructor(private store: Store<fromStore.MatchesState>) {
-    this.store.dispatch(new fromStore.LoadMatches);
+  constructor(private store: Store<MatchesState>) {
+    this.store.dispatch(new LoadMatches);
   }
 
   ngOnInit() {
-    this.matches$ = this.store.select(fromStore.getAllMatches);
+    this.matches$ = this.store.select(({ matches }) => matches.data);
   }
-
 }

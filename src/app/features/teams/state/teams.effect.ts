@@ -2,25 +2,24 @@ import { Injectable } from '@angular/core';
 import { Effect, Actions, ofType } from '@ngrx/effects';
 import { switchMap, map, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
-import * as teamActions from '../actions/team.action';
+import * as teamsActions from './teams.action';
 import { FootballService } from 'services/football/football.service';
 
 @Injectable()
-export class TeamEffects {
+export class TeamsEffects {
     constructor(
         private actions$: Actions,
         private footballService: FootballService
     ) {}
 
     @Effect()
-    loadTeam$ = this.actions$
+    loadTeams$ = this.actions$
         .pipe(
-            ofType(teamActions.LOAD_TEAM),
-            switchMap(action => {
-                const id = action['id'];
-                return this.footballService.getTeam(id).pipe(
-                    map(data => new teamActions.LoadTeamSuccess(data)),
-                    catchError(error => of(new teamActions.LoadTeamFail(error)))
+            ofType(teamsActions.LOAD_TEAMS),
+            switchMap(() => {
+                return this.footballService.getTeams().pipe(
+                    map(data => new teamsActions.LoadTeamsSuccess(data)),
+                    catchError(error => of(new teamsActions.LoadTeamsFail(error)))
                 );
             })
         );
