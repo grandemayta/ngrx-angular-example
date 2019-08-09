@@ -12,10 +12,11 @@ import { Observable } from 'rxjs';
 export class TeamsComponent implements OnInit {
   teams$: Observable<Team[]>;
 
-  constructor(private store: Store<TeamsState>) { }
+  constructor(private store: Store<TeamsState>) {
+    this.store.dispatch(new LoadTeams);
+  }
 
   ngOnInit() {
-    this.store.dispatch(new LoadTeams);
     this.teams$ = this.store.select(({ teams }) => teams.data);
   }
 }

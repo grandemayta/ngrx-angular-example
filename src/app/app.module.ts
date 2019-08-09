@@ -16,7 +16,9 @@ import { environment } from '../environments/environment';
   imports: [
     BrowserModule,
     ServicesModule,
-    RouterModule.forRoot(RoutesConfig),
+    RouterModule.forRoot(RoutesConfig, {
+      scrollPositionRestoration: 'enabled'
+    }),
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({

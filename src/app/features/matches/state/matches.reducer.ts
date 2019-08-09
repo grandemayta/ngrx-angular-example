@@ -1,4 +1,9 @@
-import * as fromMatches from '../actions/matches.action';
+import {
+    MatchesAction,
+    LOAD_MATCHES,
+    LOAD_MATCHES_SUCCESS,
+    LOAD_MATCHES_FAIL
+} from './matches.action';
 import { Match } from 'models/match.model';
 
 export interface MatchState {
@@ -13,28 +18,32 @@ export const initialState: MatchState = {
     loading: false
 };
 
+export interface MatchesState {
+    matches: MatchState;
+}
+
 export function reducer(
     state = initialState,
-    action: fromMatches.MatchesAction
+    action: MatchesAction
     ): MatchState {
 
     switch (action.type) {
-        case fromMatches.LOAD_MATCHES: {
+        case LOAD_MATCHES: {
             return {
                 ...state,
                 loading: true
             };
         }
-        case fromMatches.LOAD_MATCHES_SUCCESS: {
-            const data = action.payload;
+        case LOAD_MATCHES_SUCCESS: {
+            const { payload } = action;
             return {
                 ...state,
                 loading: false,
                 loaded: true,
-                data: data['matches']
+                data: payload['matches']
             };
         }
-        case fromMatches.LOAD_MATCHES_FAIL: {
+        case LOAD_MATCHES_FAIL: {
             return {
                 ...state,
                 loading: false,
@@ -42,10 +51,5 @@ export function reducer(
             };
         }
     }
-
     return state;
 }
-
-export const getMatches = (state: MatchState) => state.data;
-export const getMatchesLoading = (state: MatchState) => state.loading;
-export const getMatchesLoaded = (state: MatchState) => state.loaded;

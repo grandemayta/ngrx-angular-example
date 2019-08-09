@@ -15,7 +15,6 @@ export class AppComponent {
 
   navigationInterceptor(event: RouterEvent): void {
     if (event instanceof NavigationStart) {
-      window.scroll(0, 0);
       if (event.url) {
         const urlArray = event.url.split('/');
         if (urlArray.length > 1) {

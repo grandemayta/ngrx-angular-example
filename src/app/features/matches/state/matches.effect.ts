@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Effect, Actions, ofType } from '@ngrx/effects';
 import { switchMap, map, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
-import * as matchesActions from '../actions/matches.action';
+import * as matchesActions from './matches.action';
 import { FootballService } from 'services/football/football.service';
 
 @Injectable()
