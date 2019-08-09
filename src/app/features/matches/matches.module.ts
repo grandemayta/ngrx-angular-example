@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { MatchesComponent } from './matches.component';
-import { MatchesEffects, reducer } from './state';
+import { matchesReducer, MatchesEffects } from './state';
 
 @NgModule({
   declarations: [MatchesComponent],
@@ -14,7 +14,7 @@ import { MatchesEffects, reducer } from './state';
       path: '',
       component: MatchesComponent
     }]),
-    StoreModule.forFeature('matches', reducer),
+    StoreModule.forFeature('matches', matchesReducer),
     EffectsModule.forFeature([MatchesEffects])
   ]
 })

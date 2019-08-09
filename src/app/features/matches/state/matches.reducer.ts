@@ -6,23 +6,19 @@ import {
 } from './matches.action';
 import { Match } from 'models/match.model';
 
-export interface MatchState {
+interface ReducerState {
     data: Match[];
     loaded: boolean;
     loading: boolean;
 }
 
-export const initialState: MatchState = {
+const initialState: ReducerState = {
     data: [],
     loaded: false,
     loading: false
 };
 
-export function reducer(
-    state = initialState,
-    action: MatchesAction
-    ): MatchState {
-
+export function matchesReducer(state = initialState, action: MatchesAction): ReducerState {
     switch (action.type) {
         case LOAD_MATCHES: {
             return {
@@ -51,5 +47,5 @@ export function reducer(
 }
 
 export interface MatchesState {
-    matches: MatchState;
+    matches: ReducerState;
 }

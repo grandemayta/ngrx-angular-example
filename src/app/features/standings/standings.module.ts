@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StandingsComponent } from './standings.component';
-import { StandingsEffects, reducer } from './state';
+import { standingsReducer, StandingsEffects } from './state';
 
 @NgModule({
   declarations: [StandingsComponent],
@@ -14,7 +14,7 @@ import { StandingsEffects, reducer } from './state';
       path: '',
       component: StandingsComponent
     }]),
-    StoreModule.forFeature('standings', reducer),
+    StoreModule.forFeature('standings', standingsReducer),
     EffectsModule.forFeature([StandingsEffects])
   ]
 })

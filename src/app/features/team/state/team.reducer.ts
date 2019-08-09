@@ -1,41 +1,40 @@
 import {
-    TeamsAction,
-    LOAD_TEAMS,
-    LOAD_TEAMS_FAIL,
-    LOAD_TEAMS_SUCCESS
-} from './teams.action';
+    TeamAction,
+    LOAD_TEAM,
+    LOAD_TEAM_FAIL,
+    LOAD_TEAM_SUCCESS
+ } from './team.action';
 import { Team } from 'models/team.model';
 
-interface ReducerState {
-    data: Team[];
+export interface ReducerState {
+    data: Team;
     loaded: boolean;
     loading: boolean;
 }
 
-const initialState: ReducerState = {
-    data: [],
+export const initialState: ReducerState = {
+    data: null,
     loaded: false,
     loading: false
 };
 
-export function teamsReducer(state = initialState, action: TeamsAction): ReducerState {
+export function teamReducer(state = initialState, action: TeamAction): ReducerState {
     switch (action.type) {
-        case LOAD_TEAMS: {
+        case LOAD_TEAM: {
             return {
                 ...state,
                 loading: true
             };
         }
-        case LOAD_TEAMS_SUCCESS: {
-            const { payload } = action;
+        case LOAD_TEAM_SUCCESS: {
             return {
                 ...state,
                 loading: false,
                 loaded: true,
-                data: payload['teams']
+                data: action.payload
             };
         }
-        case LOAD_TEAMS_FAIL: {
+        case LOAD_TEAM_FAIL: {
             return {
                 ...state,
                 loading: false,
@@ -47,6 +46,6 @@ export function teamsReducer(state = initialState, action: TeamsAction): Reducer
     return state;
 }
 
-export interface TeamsState {
-    teams: ReducerState;
+export interface TeamState {
+    team: ReducerState;
 }
