@@ -42,7 +42,7 @@ export class FootballService {
   @Effect()
   getStandings(): Observable<Standings[]> {
     return this.http
-      .get<Standings[]>(`${this.apiUrl}/${this.apiVersion}/competitions/SA/standings?season=2018`, { headers: this.apiHeaders })
+      .get<Standings[]>(`${this.apiUrl}/${this.apiVersion}/competitions/SA/standings?season=2019`, { headers: this.apiHeaders })
       .pipe(
         catchError((error: any) => Observable.throw(error.json))
       );
@@ -51,7 +51,7 @@ export class FootballService {
   @Effect()
   getMatches(): Observable<Match[]> {
     return this.http
-      .get<Match[]>(`${this.apiUrl}/${this.apiVersion}/competitions/SA/matches?season=2018`, { headers: this.apiHeaders })
+      .get<Match[]>(`${this.apiUrl}/${this.apiVersion}/competitions/SA/matches?season=2019`, { headers: this.apiHeaders })
       .pipe(
         catchError((error: any) => Observable.throw(error.json))
       );
