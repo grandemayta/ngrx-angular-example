@@ -18,14 +18,19 @@ export class MatchesComponent implements OnInit {
 
   ngOnInit() {
     this.matches$ = this.store.select(({ matches }) => {
-      const key = 'matchday';
-      return matches.data.reduce((acc, value) => {
-        (acc[value[key]] = acc[value[key]] || []).push(value);
-        return acc;
-      }, {});
+      return this.convertArrayToObject(matches.data, 'matchday');
     });
   }
 
+  // TODO: Move to utils
+  convertArrayToObject(values: any[], key: string) {
+    return values.reduce((acc, value) => {
+      (acc[value[key]] = acc[value[key]] || []).push(value);
+      return acc;
+    }, {});
+  }
+
+  // TODO: Move to utils
   descOrder = (a: any, b: any) => {
     if (a.key < b.key) {
       return b.key;
