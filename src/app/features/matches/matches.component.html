@@ -1,32 +1,47 @@
-<div *ngIf="matches$ | async as matches">
-    <table *ngIf="matches.length > 0" class="striped">
-      <tbody>
-        <tr *ngFor="let match of matches">
-          <td class="center-align">
-            <h6>
-              <a [routerLink]="['/teams', match.homeTeam.id]">
-                {{match.homeTeam.name}}
-              </a>
-            </h6>
-          </td>
-          <td class="center-align">
-            <h6 *ngIf="match.status === 'FINISHED'">
-              <span>{{match.score.fullTime.homeTeam}}</span>
-              vs
-              <span>{{match.score.fullTime.awayTeam}}</span>
-            </h6>
-            <h6 *ngIf="match.status !== 'FINISHED'">
-              vs
-            </h6>
-          </td>
-          <td class="center-align">
-            <h6>
-              <a [routerLink]="['/teams', match.awayTeam.id]">
-                {{match.awayTeam.name}}
-              </a>
-            </h6>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<table>
+  <tbody>
+    <tr *ngFor="let item of (matches$ | async) | keyvalue:descOrder">
+      <td>
+        <h4>
+          Day {{item.key}}
+        </h4>
+        <table>
+          <tbody>
+            <tr *ngFor="let match of item.value">
+              <td class="center-align">
+                <h6>
+                  <a [routerLink]="['/teams', match.homeTeam.id]">
+                  </a>
+                </h6>
+              </td>
+              <td class="center-align">
+                <h6>
+                  <a [routerLink]="['/teams', match.homeTeam.id]">
+                    {{match.homeTeam.name}}
+                  </a>
+                </h6>
+              </td>
+              <td class="center-align">
+                <h6 *ngIf="match.status === 'FINISHED'">
+                  <span>{{match.score.fullTime.homeTeam}}</span>
+                  vs
+                  <span>{{match.score.fullTime.awayTeam}}</span>
+                </h6>
+                <h6 *ngIf="match.status !== 'FINISHED'">
+                  vs
+                </h6>
+              </td>
+              <td class="center-align">
+                <h6>
+                  <a [routerLink]="['/teams', match.awayTeam.id]">
+                    {{match.awayTeam.name}}
+                  </a>
+                </h6>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
