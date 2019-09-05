@@ -45,3 +45,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 Keep calm and code!
 <br>
 [![Open Source Love](https://badges.frapsoft.com/os/v3/open-source.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
+
+Ciao Gianperre
