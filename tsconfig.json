@@ -10,7 +10,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "esnext",
+    "target": "es5",
     "paths": {
       "models/*": ["src/app/models/*"],
       "services/*": ["src/app/services/*"],
